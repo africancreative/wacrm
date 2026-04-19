@@ -17,6 +17,14 @@ export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
 export default async function Image() {
+  // Satori (the renderer behind next/og) has two strict requirements
+  // that the previous version violated at runtime:
+  //   1. Every <div> with more than one child must explicitly declare
+  //      display: flex / contents / none.
+  //   2. Unicode glyphs outside the embedded font's coverage cause a
+  //      "Failed to download dynamic font" warning and the image
+  //      falls back to a missing-glyph tofu. ✓ was the worst
+  //      offender; replaced with a plain text dot.
   return new ImageResponse(
     (
       <div
@@ -50,13 +58,15 @@ export default async function Image() {
           >
             W
           </div>
-          <div style={{ fontSize: 36, fontWeight: 700, letterSpacing: -0.5 }}>
+          <div style={{ display: 'flex', fontSize: 36, fontWeight: 700, letterSpacing: -0.5 }}>
             {SITE_NAME}
           </div>
         </div>
 
         <div
           style={{
+            display: 'flex',
+            flexWrap: 'wrap',
             marginTop: 60,
             fontSize: 84,
             fontWeight: 800,
@@ -65,12 +75,13 @@ export default async function Image() {
             maxWidth: 1000,
           }}
         >
-          Run your WhatsApp business from{' '}
+          <span>Run your WhatsApp business from&nbsp;</span>
           <span style={{ color: '#34d399' }}>one inbox.</span>
         </div>
 
         <div
           style={{
+            display: 'flex',
             marginTop: 28,
             fontSize: 28,
             color: '#94a3b8',
@@ -78,8 +89,7 @@ export default async function Image() {
             lineHeight: 1.3,
           }}
         >
-          Shared inbox, sales pipelines, broadcasts, and no-code automations —
-          built on the official WhatsApp Business API.
+          Shared inbox, sales pipelines, broadcasts, and no-code automations — built on the official WhatsApp Business API.
         </div>
 
         <div
@@ -91,10 +101,13 @@ export default async function Image() {
             color: '#cbd5e1',
           }}
         >
-          <span>✓ Shared inbox</span>
-          <span>✓ Automations</span>
-          <span>✓ Pipelines</span>
-          <span>✓ Analytics</span>
+          <span>Shared inbox</span>
+          <span>·</span>
+          <span>Automations</span>
+          <span>·</span>
+          <span>Pipelines</span>
+          <span>·</span>
+          <span>Analytics</span>
         </div>
       </div>
     ),
