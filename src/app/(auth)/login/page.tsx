@@ -70,11 +70,11 @@ function LoginPageInner() {
     <div className="flex min-h-screen items-center justify-center bg-slate-950 px-4">
       <Card className="w-full max-w-md border-slate-800 bg-slate-900">
         <CardHeader className="items-center text-center">
-          <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
+          <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 overflow-hidden">
             {inviteToken ? (
               <UsersRound className="h-6 w-6 text-primary" />
             ) : (
-              <MessageSquare className="h-6 w-6 text-primary" />
+              <img src="/logo.svg" alt="Amisi Genuine Logo" className="h-10 w-10 object-contain" />
             )}
           </div>
           <CardTitle className="text-xl text-white">

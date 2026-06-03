@@ -57,9 +57,7 @@ function Navbar() {
     <header className="sticky top-0 z-50 border-b border-slate-800/60 bg-slate-950/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center gap-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10">
-            <MessageSquare className="h-5 w-5 text-primary" />
-          </div>
+          <img src="/logo.svg" alt="Amisi Genuine Logo" className="h-9 w-9 object-contain rounded-xl" />
           <span className="text-lg font-bold text-white">
             Amisi <span className="text-primary">Genuine</span>
           </span>
@@ -839,9 +837,7 @@ function Footer() {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <div className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
-                <MessageSquare className="h-4 w-4 text-primary" />
-              </div>
+              <img src="/logo.svg" alt="Amisi Genuine Logo" className="h-8 w-8 object-contain rounded-lg" />
               <span className="font-bold text-white">
                 Amisi <span className="text-primary">Genuine</span>
               </span>
